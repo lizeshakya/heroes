@@ -8,6 +8,7 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
+  heroes: Hero[];
   
   constructor(private heroService: HeroService) { }
   
@@ -15,12 +16,6 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
   
-  heroes: Hero[];
-  selectedHero: Hero;
-
-  onSelect(hero){
-    this.selectedHero = hero;
-  }
 
   getHeroes(): void{
     this.heroService.getHeroes().subscribe(
